@@ -1,3 +1,21 @@
+0. react源码调试步骤
+   1. github下载源码
+   2. 切换到指定tag的react版本 18.3.1
+   3. yarn 安装依赖
+   4. 执行打包命令 `yarn build react/index,react/jsx,react-dom/index,scheduler --type=NODE`
+   5. yarn link改变项目依赖指向 
+    `cd build/node_modules/react`
+    `# 申明react指向`
+    `yarn link`
+    `cd build/node_modules/react-dom`
+    `# 申明react-dom指向`
+    `yarn link`
+    6. 创建`react`项目(使用vite/注意版本)
+    7. 在react项目根目录下`yarn link react react-dom`
+    8. 开启调试
+
+
+
 1. fiber是什么,为什么要用fiber?
 在react15以及之前是递归更新,一旦开始就无法停止,
 react16中fiber和scheduler架构的更新使得react的更新由 不可中断的同步 变更为 可中断的异步,
